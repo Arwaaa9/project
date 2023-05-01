@@ -10,3 +10,14 @@ app.get("/name", function (req, res) {
 app.listen(8000, function () {
   console.log("listening");
 });
+
+app.set('view engine', 'ejs');
+app.get("/testHtml" , (req, res) => {
+res.sendFile(__dirname + "/test.html");
+});
+
+app.get("/testingEjs" , (req, res) => {
+  const mark = "mark";
+  res.render("introToEjs.ejs", { student: mark});
+});
+
